@@ -1,132 +1,127 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Приглашение на юбилей</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Секции со слайдами</title>
   <style>
-    body {
-     background-image: url('tos1.jpg');
-	  background-repeat: repeat-y;           /* повтор по вертикали */
-      background-position: top center;       /* выравнивание по центру */
-      background-size: contain;                 /* сохраняем исходный размер */
-       margin: 0;
-      font-family: 'Montserrat', sans-serif;
-      color: silver;
-      text-align: center;
+    /* Общие стили */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      height: 100vh;
+      overflow-y: scroll;
+      scroll-snap-type: y mandatory;
+      font-family: Arial, sans-serif;
+      color: white;
+    }
+
     section {
-	  min-height: 100vh;
+      scroll-snap-align: start;
+      min-height: 100vh;
+      position: relative;
       display: flex;
       justify-content: center;
       align-items: center;
-      flex-direction: column;
-      padding: 40px;
+      overflow: hidden;
     }
-    h1, h2, p {
+ h1, h2, p {
       margin: 15px 0;
     }
     h1 {
-      font-size: 50px;
-      color: black;
+      font-size: 100px;
+	font-family: "Great Vibes", cursive;
+  font-weight: 100;
+  font-style: normal;
+      color: white;
       text-shadow: 0 0 15px silver;
     }
     h2 {
       font-size: 28px;
       color: silver;
     }
-    .big-30 {
-      font-size: 120px;
-      font-weight: 700;
-      color: black;
-      text-shadow: 0 0 20px silver, 0 0 30px #fff;
+    /* Фон */
+    section .bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background: url("1.png") no-repeat center center / cover;
     }
-    .btn {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 14px 30px;
-      background: silver;
-      color: black;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
-      transition: 0.3s;
-      box-shadow: 0 0 10px silver;
+
+    /* У первой секции свой фон */
+    section.first .bg {
+      background: url("tos1.jpg") no-repeat center center / cover;
     }
-    .btn:hover {
-      background: white;
-      color: black;
-      box-shadow: 0 0 20px #fff;
+
+    /* Контент */
+    section .content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      animation: fadeIn 2s ease;
     }
-    .emoji {
-      font-size: 32px;
-      margin: 10px;
+
+    section .content h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
     }
-    
-    
+
+    section .content p {
+      font-size: 1.5rem;
+    }
+
+    /* Анимация появления */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
   </style>
 </head>
 <body>
-
-  <div class="confetti" id="confetti"></div>
-
-  <!-- Вступление -->
-  <section data-aos="fade-up">
-    <div class="emoji">🎉🥂✨</div>
-    <h1>Приглашение на юбилей!</h1>
-    <h2>Дорогие друзья, приглашаю вас на свой праздник 🎂</h2>
-    <div class="big-30">30</div>
-    <p>Говорят, жизнь только начинается… ну, надеюсь, бар тоже 😅</p>
+  <section class="first">
+    <div class="bg"></div>
+    <div class="content",data-aos="fade-up">
+      <h1>Первая секция</h1>
+      <p>У неё свой уникальный фон</p>
+    </div>
   </section>
 
-  <!-- Дата и место -->
-  <section data-aos="zoom-in">
-    <h2>📅 Когда и где?</h2>
-    <p>15 октября 2025, в 18:00</p>
-    <p>📍 Адрес: ул. Демократическая, 3</p>
-    <a href="https://yandex.ru/maps/?text=ул.%20Демократическая%203" target="_blank" class="btn">Открыть на карте</a>
+  <section>
+    <div class="bg"></div>
+    <div class="content",data-aos="zoom-in">
+      <h1>Вторая секция</h1>
+      <p>Фон общий для всех остальных</p>
+    </div>
   </section>
 
-  <!-- Еда и напитки -->
-  <section data-aos="fade-right">
-    <h2>🍴 Еда и напитки</h2>
-    <p>Будет много вкусного, так что голодными приходить запрещено!</p>
-    <p>А чтобы не тратить время на ненужные сувениры — лучше принесите 💸</p>
+  <section>
+    <div class="bg"></div>
+    <div class="content",data-aos="fade-right">
+      <h1>Третья секция</h1>
+      <p>И здесь тот же фон</p>
+    </div>
   </section>
 
-  <!-- Развлечения -->
-  <section data-aos="fade-left">
-    <h2>🛁 Баня и бассейн</h2>
-    <p>После застолья идём париться и плавать.</p>
-    <p>⚠️ Не забудьте взять всё необходимое для бани и бассейна!</p>
+  <section>
+    <div class="bg"></div>
+    <div class="content",data-aos="fade-left">
+      <h1>Четвёртая секция</h1>
+      <p>Скроллинг плавный, как слайды</p>
+    </div>
   </section>
-
-  <!-- Ночёвка -->
-  <section data-aos="flip-up">
-    <h2>🌙 Кто с ночёвкой?</h2>
-    <p>Сообщите заранее, кто планирует остаться ночевать.</p>
-    <p>Места ограничены — успей занять матрас! 😜</p>
-  </section>
-
-  <!-- Финал -->
-  <section data-aos="fade-up">
-    <h1>Жду вас! 🥳</h1>
-    <p>Будет весело, шумно и незабываемо.</p>
-    <div class="emoji">💃🕺🎂🍾</div>
-  </section>
-
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init({
-      duration: 1200,
-      once: true
-    });
-
-   
-  </script>
 </body>
 </html>
