@@ -3,9 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <title>Секции со слайдами</title>
+  <title>Секции с уникальными фонами</title>
   <style>
     /* Общие стили */
     * {
@@ -35,35 +33,16 @@
       align-items: center;
       overflow: hidden;
     }
- h1, h2, p {
-      margin: 15px 0;
-    }
-    h1 {
-      font-size: 100px;
-	font-family: "Great Vibes", cursive;
-  font-weight: 100;
-  font-style: normal;
-      color: white;
-      text-shadow: 0 0 15px silver;
-    }
-    h2 {
-      font-size: 28px;
-      color: silver;
-    }
-    /* Фон */
+
     section .bg {
       position: absolute;
       inset: 0;
       z-index: 0;
-      background: url("1.png") no-repeat center center / cover;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
     }
 
-    /* У первой секции свой фон */
-    section.first .bg {
-      background: url("tos1.jpg") no-repeat center center / cover;
-    }
-
-    /* Контент */
     section .content {
       position: relative;
       z-index: 1;
@@ -80,51 +59,64 @@
       font-size: 1.5rem;
     }
 
-   
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
+
+    /* Уникальные фоны */
+    section:nth-of-type(1) .bg { background-image: url("tos1.jpg"); }
+    section:nth-of-type(2) .bg { background-image: url("b.png"); }
+    section:nth-of-type(3) .bg { background-image: url("sec3.png"); }
+    section:nth-of-type(4) .bg { background-image: url("3.png"); }
+    section:nth-of-type(5) .bg { background-image: url("11.png"); }
   </style>
 </head>
 <body>
-  <section class="first", data-aos="fade-up">
+  <section>
     <div class="bg"></div>
-    <div class="content" data-aos="fade-up">
-      <h1>Первая секция</h1>
-      <p>У неё свой уникальный фон</p>
+    <div class="content">
+      <h1>Секция 1</h1>
+      <p>Уникальный фон для первой секции</p>
     </div>
   </section>
 
   <section>
     <div class="bg"></div>
-    <div class="content" data-aos="zoom-in">
-      <h1>Вторая секция</h1>
-      <p>Фон общий для всех остальных</p>
+    <div class="content">
+      <h1>Секция 2</h1>
+      <p>Фон второй секции</p>
     </div>
   </section>
 
   <section>
     <div class="bg"></div>
-    <div class="content" data-aos="fade-right">
-      <h1>Третья секция</h1>
-      <p>И здесь тот же фон</p>
+    <div class="content">
+      <h1>Секция 3</h1>
+      <p>Фон третьей секции</p>
     </div>
   </section>
 
-  <section >
+  <section>
     <div class="bg"></div>
-    <div class="content" data-aos="fade-left">
-      <h1>Четвёртая секция</h1>
-      <p>Скроллинг плавный, как слайды</p>
+    <div class="content">
+      <h1>Секция 4</h1>
+      <p>Фон четвертой секции</p>
     </div>
   </section>
-  
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init({
-      duration: 1200,
-      once: true
-    });
 
-   
-  </script>
+  <section>
+    <div class="bg"></div>
+    <div class="content">
+      <h1>Секция 5</h1>
+      <p>Фон пятой секции</p>
+    </div>
+  </section>
 </body>
 </html>
