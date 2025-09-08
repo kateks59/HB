@@ -1,0 +1,170 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Приглашение на юбилей</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <style>
+    body {
+     background-image: url('grey.jpg');
+      background-repeat: repeat-y;           /* повтор по вертикали */
+      background-position: top center;       /* выравнивание по центру */
+      background-size: auto;                 /* сохраняем исходный размер */
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      color: silver;
+      text-align: center;
+    }
+    section {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 40px;
+    }
+    h1, h2, p {
+      margin: 15px 0;
+    }
+    h1 {
+      font-size: 50px;
+      color: white;
+      text-shadow: 0 0 15px silver;
+    }
+    h2 {
+      font-size: 28px;
+      color: silver;
+    }
+    .big-30 {
+      font-size: 120px;
+      font-weight: 700;
+      color: white;
+      text-shadow: 0 0 20px silver, 0 0 30px #fff;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 14px 30px;
+      background: silver;
+      color: black;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: 0.3s;
+      box-shadow: 0 0 10px silver;
+    }
+    .btn:hover {
+      background: white;
+      color: black;
+      box-shadow: 0 0 20px #fff;
+    }
+    .emoji {
+      font-size: 32px;
+      margin: 10px;
+    }
+    /* Конфетти */
+    .confetti {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 9999;
+    }
+    .confetti-piece {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: silver;
+      opacity: 0.8;
+      transform: rotate(0deg);
+      animation: fall linear infinite;
+    }
+    @keyframes fall {
+      0% {
+        transform: translateY(-10px) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="confetti" id="confetti"></div>
+
+  <!-- Вступление -->
+  <section data-aos="fade-up">
+    <div class="emoji">🎉🥂✨</div>
+    <h1>Приглашение на юбилей!</h1>
+    <h2>Дорогие друзья, приглашаю вас на свой праздник 🎂</h2>
+    <div class="big-30">30</div>
+    <p>Говорят, жизнь только начинается… ну, надеюсь, бар тоже 😅</p>
+  </section>
+
+  <!-- Дата и место -->
+  <section data-aos="zoom-in">
+    <h2>📅 Когда и где?</h2>
+    <p>15 октября 2025, в 18:00</p>
+    <p>📍 Адрес: ул. Демократическая, 3</p>
+    <a href="https://yandex.ru/maps/?text=ул.%20Демократическая%203" target="_blank" class="btn">Открыть на карте</a>
+  </section>
+
+  <!-- Еда и напитки -->
+  <section data-aos="fade-right">
+    <h2>🍴 Еда и напитки</h2>
+    <p>Будет много вкусного, так что голодными приходить запрещено!</p>
+    <p>А чтобы не тратить время на ненужные сувениры — лучше принесите 💸</p>
+  </section>
+
+  <!-- Развлечения -->
+  <section data-aos="fade-left">
+    <h2>🛁 Баня и бассейн</h2>
+    <p>После застолья идём париться и плавать.</p>
+    <p>⚠️ Не забудьте взять всё необходимое для бани и бассейна!</p>
+  </section>
+
+  <!-- Ночёвка -->
+  <section data-aos="flip-up">
+    <h2>🌙 Кто с ночёвкой?</h2>
+    <p>Сообщите заранее, кто планирует остаться ночевать.</p>
+    <p>Места ограничены — успей занять матрас! 😜</p>
+  </section>
+
+  <!-- Финал -->
+  <section data-aos="fade-up">
+    <h1>Жду вас! 🥳</h1>
+    <p>Будет весело, шумно и незабываемо.</p>
+    <div class="emoji">💃🕺🎂🍾</div>
+  </section>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1200,
+      once: true
+    });
+
+    // Конфетти
+    const confettiContainer = document.getElementById('confetti');
+    const colors = ['silver', 'white', '#ddd'];
+    for (let i = 0; i < 100; i++) {
+      const confetti = document.createElement('div');
+      confetti.classList.add('confetti-piece');
+      confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+      confetti.style.left = Math.random() * 100 + 'vw';
+      confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+      confetti.style.width = confetti.style.height = (Math.random() * 8 + 5) + 'px';
+      confettiContainer.appendChild(confetti);
+    }
+  </script>
+</body>
+</html>
