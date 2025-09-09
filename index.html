@@ -229,106 +229,24 @@ section .content h2 {
   padding: 40px 0;
 }
 
-/* Вертикальная линия по центру */
-<!-- .timeline::before { -->
-  <!-- content: ''; -->
-  <!-- position: absolute; -->
-  <!-- top: 0; -->
-  <!-- left: 50%; -->
-  <!-- transform: translateX(-50%); -->
-  <!-- width: 4px; -->
-  <!-- height: 100%; -->
-  <!-- background: #ccc; -->
-  <!-- z-index: 0; /* линия под кружками */ -->
-<!-- } -->
-
-/* Элемент таймлайна */
-.timeline-item {
-  position: relative;
-  display: flex;
-  align-items: center; /* кружок и текст на одной линии */
-  margin-bottom: 60px;
-  z-index: 1;
+.event {
+  display: flex;           /* элементы в одну линию */
+  align-items: center;     /* выравнивание по вертикали */
+  gap: 15px;               /* расстояние между картинкой и заголовком */
 }
 
-/* Кружок с картинкой */
-.timeline-item .circle {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  overflow: hidden;
-  background: #fff;
-  border: 2px solid #000000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  position: absolute;
-  top: 0;
+.event img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;       /* картинка не искажается */
+  <!-- border-radius: 50%;      /* если нужна круглая картинка */ -->
 }
 
-.timeline-item .circle img {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  object-fit: cover;
+.event h3 {
+  margin: 0;               /* убираем стандартный отступ */
 }
 
-/* Контент блок слева */
-.timeline-item.left {
-  justify-content: flex-end;
-  text-align: right;
-}
 
-.timeline-item.left .content {
-  margin-right: 80px;
-}
-
-.timeline-item.left .circle {
-  right: -30px;
-}
-
-/* Контент блок справа */
-.timeline-item.right {
-  justify-content: flex-start;
-  text-align: left;
-}
-
-.timeline-item.right .content {
-  margin-left: 80px;
-}
-
-.timeline-item.right .circle {
-  left: -30px;
-}
-
-/* Контент общий стиль */
-.timeline-item .content h3 {
-  margin: 0 0 10px;
-}
-
-.timeline-item .content p {
-  margin: 0;
-}
-
-/* Адаптив */
-max-width: 768px {
-  .timeline-item {
-    flex-direction: column;
-    align-items: center;
-    text-align: center !important;
-    margin-bottom: 40px;
-  }
-  .timeline-item.left .circle,
-  .timeline-item.right .circle {
-    left: 50% !important;
-    right: auto !important;
-    transform: translateX(-50%);
-  }
-  .timeline-item.left .content,
-  .timeline-item.right .content {
-    margin: 10px 0 0 0 !important;
-  }
   </style>
 </head>
 <body>
@@ -422,57 +340,43 @@ max-width: 768px {
 
     <!-- 1 событие слева -->
     <div class="timeline-item left">
-      <div class="circle">
-        <img src="food.png" alt="Вкусная еда">
-      </div>
-      <div class="content">
-        <h3>Вкусная еда</h3>
-        <p>Подаем аппетитные блюда для всех гостей.</p>
-      </div>
+      <div class="event">
+        <img src="food.png" alt="Событие"> 
+		<h3>Вкусная еда</h3>
+     </div>
     </div>
 
     <!-- 2 событие справа -->
     <div class="timeline-item right">
-      <div class="circle">
-        <img src="note.png" alt="Хорошая музыка">
-      </div>
-      <div class="content">
-        <h3>Хорошая музыка</h3>
-        <p>Живые исполнители и плейлист для отличного настроения.</p>
-      </div>
+      <div class="event">
+        <img src="note.png" alt="Событие">
+		<h3>Хорошая музыка</h3>
+      </div>     
     </div>
 
     <!-- 3 событие слева -->
     <div class="timeline-item left">
-      <div class="circle">
-        <img src="drink.png" alt="Вкусные напитки">
-      </div>
-      <div class="content">
-        <h3>Вкусные напитки</h3>
-        <p>Коктейли и прохладительные напитки для всех гостей.</p>
-      </div>
+      <div class="event">
+        <img src="drink.png" alt="Событие">
+		<h3>Вкусные напитки</h3>
+      </div>     
     </div>
 
     <!-- 4 событие справа -->
     <div class="timeline-item right">
-      <div class="circle">
-        <img src="https://via.placeholder.com/60?text=😊" alt="Хорошее настроение">
-      </div>
-      <div class="content">
-        <h3>Хорошее настроение</h3>
-        <p>Веселые игры и активные развлечения для всех участников.</p>
-      </div>
+      <div class="event">
+        <img src="like.jpg" alt="Событие"> 
+		<h3>Хорошее настроение</h3>
+      </div>    
     </div>
 
     <!-- 5 событие слева -->
     <div class="timeline-item left">
-      <div class="circle">
-        <img src="https://via.placeholder.com/60?text=🏊‍♂️" alt="Баня и бассейн">
+      <div class="event">
+        <img src="sauna.png" alt="Событие">
+		<h3>Баня и бассейн</h3>
       </div>
-      <div class="content">
-        <h3>Баня и бассейн</h3>
-        <p>Расслабление и отдых для гостей после активностей.</p>
-      </div>
+     
     </div>
 
   </div>
