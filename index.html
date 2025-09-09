@@ -8,7 +8,7 @@
 	 <link href="https://fonts.googleapis.com/css2?family=Comforter+Brush&family=Dancing+Script:wght@400..700&family=Great+Vibes&display=swap" rel="stylesheet"> 
 <link href="https://fonts.googleapis.com/css2?family=Comforter+Brush&family=Dancing+Script:wght@400..700&family=Great+Vibes&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Comforter+Brush&family=Dancing+Script:wght@400..700&family=Great+Vibes&family=Quicksand:wght@300..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"> 
-
+<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
 
  <title>Секции с уникальными фонами</title>
   <style>
@@ -108,10 +108,33 @@ section .content h2 {
     /* Уникальные фоны */
     section:nth-of-type(1) .bg { background-image: url("tos1.jpg"); }
     section:nth-of-type(2) .bg { background-image: url("b.png"); }
-    section:nth-of-type(3) .bg { background-image: url("tusa.jpg"); }
+    section:nth-of-type(3) .bg {
+	background-image: url("tusa.jpg");
+
+
+	}
     section:nth-of-type(4) .bg { background-image: url("sec3.png"); }
     section:nth-of-type(5) .bg { background-image: url("11.png"); }
   
+  #map {
+      width: 100%;
+      height: 500px;
+      margin-bottom: 10px;
+    }
+    .map-link {
+      display: inline-block;
+      padding: 8px 12px;
+      background: #ffcc00;
+      color: #000;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-top: 5px;
+    }
+    .map-link:hover {
+      background: #ffdb4d;
+    }
+	
   .countdown {
   display: flex;
   gap: 15px;
@@ -188,9 +211,21 @@ section .content h2 {
 <section>
     <div class="bg"></div>
     <div class="content">
-      <h1>Секция 3</h1>
-      <p>Фон третьей секции</p>
-    </div>
+      <h2>Как добраться<br/></h1>
+      <h3>Для Вашего удобства ниже<br/>представлена карта.<br/>Надеюсь, что Вы легко<br/>найдете место проведения<br/>торжества и порадуете меня<br/>своим присутствием!<br/><br/<br/</p>
+				<div id="map"></div>
+			  <!-- <a class="map-link"  -->
+     <!-- href="https://yandex.ru/maps/?text=Самара%2C%20улица%20Демократическая%20130к2"  -->
+     <!-- target="_blank"> -->
+     <!-- Открыть в Яндекс.Картах -->
+  <!-- </a> -->
+
+  <!-- <a class="map-link"  -->
+     <!-- href="https://yandex.ru/maps/?rtext=~Самара,%20улица%20Демократическая%20130к2"  -->
+     <!-- target="_blank"> -->
+     <!-- Проложить маршрут -->
+  <!-- </a> -->
+	</div>
   </section>
   <section>
     <div class="bg"></div>
@@ -227,6 +262,32 @@ section .content h2 {
     </div>
   </section>
   
+<script type="text/javascript">
+    ymaps.ready(init);
+
+    function init() {
+      var coords = [53.281007, 50.226002]; // Самара, ул. Демократическая 130к2
+
+      var map = new ymaps.Map("map", {
+          center: coords,
+          zoom: 16,
+          type: 'yandex#map'
+      });
+
+      // Делаем карту чёрно-белой
+      map.panes.get('ground').getElement().style.filter = 'grayscale(100%)';
+
+      // Метка на доме
+      var placemark = new ymaps.Placemark(coords, {
+          balloonContent: 'Самара, ул. Демократическая 130к2'
+      });
+	// Клик по карте открывает Яндекс.Карты
+	map.events.add('click', function() {
+    window.open('https://yandex.ru/maps/?text=Самара,%20улица%20Демократическая%20130к2', '_blank');
+  });
+      map.geoObjects.add(placemark);
+    }
+  </script> 
   
  <script>
   const endDate = new Date("2025-11-01T17:00:00").getTime();
