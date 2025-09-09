@@ -30,7 +30,56 @@
       font-family: Arial, sans-serif;
       color: white;
     }
+.scroll-down {
+  position: absolute;
+  bottom: 20px; /* от нижнего края секции */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
 
+/* Каждая стрелка */
+.scroll-down span {
+  display: block;
+  width: 12px;
+  height: 12px;
+  border-bottom: 2px solid #000;
+  border-right: 2px solid #000;
+  transform: rotate(45deg);
+  animation: scrollDown 1.2s infinite;
+  opacity: 0;
+}
+
+/* Вторая стрелка с задержкой */
+.scroll-down span:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+/* Анимация пульсации/движения вниз */
+@keyframes scrollDown {
+  0% {
+    transform: rotate(45deg) translateY(0);
+    opacity: 0;
+  }
+  50% {
+    transform: rotate(45deg) translateY(8px);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(45deg) translateY(0);
+    opacity: 0;
+  }
+}
+
+/* Адаптив: стрелки меньше на маленьких экранах */
+max-width: 600px {
+  .scroll-down span {
+    width: 8px;
+    height: 8px;
+  }
+}
     section {
       scroll-snap-align: start;
       min-height: 100vh;
@@ -108,13 +157,9 @@ section .content h2 {
     /* Уникальные фоны */
     section:nth-of-type(1) .bg { background-image: url("tos1.jpg"); }
     section:nth-of-type(2) .bg { background-image: url("b.png"); }
-    section:nth-of-type(3) .bg {
-	background-image: url("tusa.jpg");
-
-
-	}
-    section:nth-of-type(4) .bg { background-image: url("sec3.png"); }
-    section:nth-of-type(5) .bg { background-image: url("11.png"); }
+    section:nth-of-type(3) .bg {background-image: url("tusa.jpg");	}
+    section:nth-of-type(4) .bg { background-image: url("loc.png"); }
+    section:nth-of-type(5) .bg { background-image: url("plan.png"); }
   
   #map {
       width: 100%;
@@ -186,6 +231,10 @@ section .content h2 {
       <h1>Приглашаю</h1>
       <p>на мой юбилей</p>
     </div>
+	 <div class="scroll-down">
+    <span></span>
+    <span></span>
+  </div>
   </section>
 
   <section>
@@ -197,6 +246,7 @@ section .content h2 {
 	  <h3>Жду Вас<br/></p>
 	  <h2>1 ноября 2025<br/></h1>
 	  <h3>По адресу:<br/>ул. Демократическая, д.130к2<br/><br/><br/><hr></p>
+	 
     </div>
   </section>
 
@@ -211,7 +261,7 @@ section .content h2 {
 <section>
     <div class="bg"></div>
     <div class="content">
-      <h2>Как добраться<br/></h1>
+      <h2><br/>Как добраться<br/></h1>
       <h3>Для Вашего удобства ниже<br/>представлена карта.<br/>Надеюсь, что Вы легко<br/>найдете место проведения<br/>торжества и порадуете меня<br/>своим присутствием!<br/><br/<br/</p>
 				<div id="map"></div>
 			  <!-- <a class="map-link"  -->
