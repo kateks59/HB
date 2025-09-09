@@ -1,258 +1,116 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Приглашение на юбилей</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-	 <link href="https://fonts.googleapis.com/css2?family=Comforter+Brush&family=Dancing+Script:wght@400..700&family=Great+Vibes&display=swap" rel="stylesheet"> 
+ <link href="https://fonts.googleapis.com/css2?family=Comforter+Brush&family=Dancing+Script:wght@400..700&family=Great+Vibes&display=swap" rel="stylesheet"> 
 <link href="https://fonts.googleapis.com/css2?family=Comforter+Brush&family=Dancing+Script:wght@400..700&family=Great+Vibes&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Comforter+Brush&family=Dancing+Script:wght@400..700&family=Great+Vibes&family=Quicksand:wght@300..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"> 
-<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
 
- <title>Приглашение</title>
   <style>
-    /* Общие стили */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
-      height: 100vh;
-      overflow-y: scroll;
-      scroll-snap-type: y mandatory;
-      font-family: Arial, sans-serif;
-      color: white;
+     /*background-image: url('хб.jpg');*/
+      background-repeat: repeat-y;           /* повтор по вертикали */
+      background-position: top center;       /* выравнивание по центру */
+      background-size: 360px 640px;                 /* сохраняем исходный размер */
+
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      color: silver;
+      text-align: center;
     }
-.scroll-down {
-  position: absolute;
-  bottom: 20px; /* от нижнего края секции */
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-/* Каждая стрелка */
-.scroll-down span {
-  display: block;
-  width: 12px;
-  height: 12px;
-  border-bottom: 2px solid #000;
-  border-right: 2px solid #000;
-  transform: rotate(45deg);
-  animation: scrollDown 1.2s infinite;
-  opacity: 0;
-}
-
-/* Вторая стрелка с задержкой */
-.scroll-down span:nth-child(2) {
-  animation-delay: 0.3s;
-}
-
-/* Анимация пульсации/движения вниз */
-@keyframes scrollDown {
-  0% {
-    transform: rotate(45deg) translateY(0);
-    opacity: 0;
-  }
-  50% {
-    transform: rotate(45deg) translateY(8px);
-    opacity: 1;
-  }
-  100% {
-    transform: rotate(45deg) translateY(0);
-    opacity: 0;
-  }
-}
-
-/* Адаптив: стрелки меньше на маленьких экранах */
-max-width: 600px {
-  .scroll-down span {
-    width: 8px;
-    height: 8px;
-  }
-}
     section {
-      scroll-snap-align: start;
       min-height: 100vh;
-      position: relative;
       display: flex;
       justify-content: center;
       align-items: center;
-      overflow: hidden;
+      flex-direction: column;
+      padding: 40px;
     }
-
-    section .bg {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
-
-    section .content {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-      animation: fadeIn 2s ease;
-    }
-
-    section .content h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-	  font-size: 70px;
-		font-family: "Great Vibes", cursive;
-	font-weight: 100;
+    h1, h2, p {
+      margin: 15px 0;
+	 
 	font-style: normal;
-      color: white;
+      font-size: 15px;
+    }
+    h1 {
+      font-size: 20px
+	  
+      color: black;
       text-shadow: 0 0 15px silver;
     }
-section .content h2 {
-    
-      margin-bottom: 1rem;
-	  font-size: 80px;
+    h2 {
+	
+	font-size: 28px;
+      color: silver;
+    }
+    .big-30 {
+	font-size: 80px;
 		font-family: "Great Vibes", cursive;
 	font-weight: 10;
 	font-style: normal;
+ 
+      font-size: 80px;
+      font-weight: 300;
       color: black;
-      text-shadow: 0 0 15px silver;
+      text-shadow: 0 0 20px silver, 0 0 30px #fff;
     }
-	  section .content h3 {
-      font-size: 1rem;
-     font-family: "Quicksand", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 300;
-  font-style: normal;
-      color: black;
-      text-shadow: 0 0 15px silver;
-    }
-    section .content p {
-      font-size: 1.5rem;
-	    font-family: "Raleway", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: <weight>;
-  font-style: normal;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* Уникальные фоны */
-    section:nth-of-type(1) .bg { background-image: url("tos1.jpg"); }
-    section:nth-of-type(2) .bg { background-image: url("b.png"); }
-    section:nth-of-type(3) .bg {background-image: url("tusa.jpg");	}
-    section:nth-of-type(4) .bg { background-image: url("loc.png"); }
-	section:nth-of-type(5) .bg { background-image: url("tusa3.jpg"); }
-    section:nth-of-type(6) .bg { background-image: url("plan.png"); }
-	section:nth-of-type(7) .bg { background-image: url("tos2.jpg"); }
-	section:nth-of-type(8) .bg { background-image: url("detail.png"); }
-	section:nth-of-type(9) .bg { background-image: url("tusa2.jpg"); }
-	section:nth-of-type(10) .bg { background-image: url("love.png"); }
-  #map {
-      width: 100%;
-      height: 500px;
-      margin-bottom: 10px;
-    }
-    .map-link {
+    .btn {
       display: inline-block;
-      padding: 8px 12px;
-      background: #ffcc00;
-      color: #000;
+      margin-top: 20px;
+      padding: 14px 30px;
+      background: silver;
+      color: black;
       text-decoration: none;
+      border-radius: 8px;
       font-weight: bold;
-      border-radius: 5px;
-      margin-top: 5px;
+      transition: 0.3s;
+      box-shadow: 0 0 10px silver;
     }
-    .map-link:hover {
-      background: #ffdb4d;
+    .btn:hover {
+      background: white;
+      color: black;
+      box-shadow: 0 0 20px #fff;
     }
-	
-  .countdown {
-  display: flex;
-  gap: 15px;
-  justify-content: center;
-  margin-top: 30px;
-  font-family: sans-serif;
-}
-
-.countdown-item {
-  text-align: center;
-}
-
-.number {
-  font-size: 3.5rem;
-  background: rgba(0,0,0,0.7);
-  color: #fff;
-  padding: 10px 15px;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-  position: relative;
-  overflow: hidden;
-  min-width: 65px;
-}
-
-.label {
-  margin-top: 5px;
-  font-size: 1rem;
-  color: #eee;
-}
-
-<!-- /* Эффект перелистывания */ -->
-<!-- @keyframes flipIn { -->
-  <!-- 0% { transform: rotateX(90deg); opacity: 0; } -->
-  <!-- 50% { transform: rotateX(0deg); opacity: 1; } -->
-  <!-- 100% { transform: rotateX(0deg); } -->
-<!-- } -->
-
-<!-- .flip { -->
-  <!-- animation: flipIn 0.5s ease-in-out; -->
-<!-- } -->
-}
-/* таймлайн*/
-.timeline {
-  position: relative;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 40px 0;
-}
-
-.event {
-  display: flex;           /* элементы в одну линию */
-  align-items: center;     /* выравнивание по вертикали */
-	justify-content: center;
- gap: 15px;               /* расстояние между картинкой и заголовком */
-}
-
-.event img {
-  width: 80px;
-  height: 80px;
-  object-fit: cover;       /* картинка не искажается */
-  <!-- border-radius: 50%;      /* если нужна круглая картинка */ -->
-}
-
-.event h3 {
-  margin: 0;               /* убираем стандартный отступ */
-}
-
-/* Кнопка всегда сверху справа */
+    .emoji {
+      font-size: 32%;
+      margin: 10%;
+    }
+    /* Конфетти */
+    .confetti {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 9999;
+    }
+    .confetti-piece {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: silver;
+      opacity: 0.8;
+      transform: rotate(0deg);
+      animation: fall linear infinite;
+    }
+    @keyframes fall {
+      0% {
+        transform: translateY(-10px) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+	/* Кнопка всегда сверху справа */
 #mute-btn {
   position: fixed;
   top: 20px;
@@ -273,289 +131,60 @@ section .content h2 {
   </style>
 </head>
 <body>
-<!-- Музыка -->
+
+ <a  onclick="javascript:location.href='https://kateks59.github.io/HB/';">
+ 
+  <div class="confetti" id="confetti"></div>
+ <!-- Музыка -->
 <audio id="bg-music" loop>
   <source src="music.mp3" type="audio/mpeg">
   Ваш браузер не поддерживает аудио.
 </audio>
-
 <!-- Кнопка -->
 <button id="mute-btn">🔊</button>
+ 
+
+  <!-- Вступление -->
   <section data-aos="fade-up">
-    <div class="bg"></div>
-    <div class="content">
-      <h1>Приглашаю</h1>
-      <p>на мой юбилей</p>
-    </div>
-	 <div class="scroll-down">
-    <span></span>
-    <span></span>
-  </div>
-  </section>
-
-  <section data-aos="zoom-in">
-    <div class="bg"></div>
-    <div class="content">
-      <h2>Друзья!<br/></h1>
-      <h3>У меня есть прекрасный <br/>повод провести <br/>субботний вечер вместе!<br/></p>
-	  <h2><small>Мне 30!</small><br/></h1>
-	  <h3>Жду Вас<br/></p>
-	  <h2>1 ноября 2025<br/></h1>
-	  <h3>По адресу:<br/>ул. Демократическая, д.130к2<br/><br/><br/><hr></p>
-	 
-    </div>
-  </section>
-
-  <section data-aos="fade-right">
-    <div class="bg"></div>
-    <div class="content">
-      <h1></h1>
-      <p></p>
-    </div>
-  </section>
   
-<section data-aos="fade-left">
-    <div class="bg"></div>
-    <div class="content">
-      <h2><br/>Как добраться<br/></h1>
-      <h3>Для Вашего удобства ниже<br/>представлена карта.<br/>Надеюсь, что Вы легко<br/>найдете место проведения<br/>торжества и порадуете меня<br/>своим присутствием!<br/><br/<br/</p>
-				<div id="map"></div>
-			  <!-- <a class="map-link"  -->
-     <!-- href="https://yandex.ru/maps/?text=Самара%2C%20улица%20Демократическая%20130к2"  -->
-     <!-- target="_blank"> -->
-     <!-- Открыть в Яндекс.Картах -->
-  <!-- </a> -->
-
-  <!-- <a class="map-link"  -->
-     <!-- href="https://yandex.ru/maps/?rtext=~Самара,%20улица%20Демократическая%20130к2"  -->
-     <!-- target="_blank"> -->
-     <!-- Проложить маршрут -->
-  <!-- </a> -->
-	</div>
+    <h1>Вы получили</h1>
+   
+    <div class="big-30">Приглашение</div>
+    <p>Коснись для просмотра экрана </p>
   </section>
-   <section data-aos="fade-right">
-    <div class="bg"></div>
-    <div class="content">
-      <h1></h1>
-      <p></p>
-    </div>
-  </section>
-  <section data-aos="flip-up">
-    <div class="bg"></div>
-    <div class="content">
-	<h2 style="text-align: center; margin-bottom: 50px;"><br>Программа мероприятия</h2>     
-      <h2 style="text-align: center; margin-bottom: 50px;  font-size: 50px">Сбор гостей в 17:00</br></h2>
-	  
 
-     <div class="timeline">
-
-    <!-- 1 событие слева -->
-    <div class="timeline-item left">
-      <div class="event">
-        <img src="food.png" alt="Событие"> 
-		<h3>Вкусная еда</h3>
-     </div>
-    </div>
-
-    <!-- 2 событие справа -->
-    <div class="timeline-item right">
-      <div class="event">
-        <img src="note.png" alt="Событие">
-		<h3>Хорошая музыка</h3>
-      </div>     
-    </div>
-
-    <!-- 3 событие слева -->
-    <div class="timeline-item left">
-      <div class="event">
-        <img src="drink.png" alt="Событие">
-		<h3>Вкусные напитки</h3>
-      </div>     
-    </div>
-
-    <!-- 4 событие справа -->
-    <div class="timeline-item right">
-      <div class="event">
-        <img src="like.jpg" alt="Событие"> 
-		<h3>Хорошее настроение</h3>
-      </div>    
-    </div>
-
-    <!-- 5 событие слева -->
-    <div class="timeline-item left">
-      <div class="event">
-        <img src="sauna.png" alt="Событие">
-		<h3>Баня и бассейн</h3>
-      </div>     
-    </div>
-  </div>
-<h2><br/><h2/>
-  </div>
-  </div>
-  </section data-aos="fade-up" >
-   <section>
-    <div class="bg"></div>
-    <div class="content">
-      <!-- <h1>Секция 5</h1> -->
-      <!-- <p>Фон четвертой секции</p> -->
-	    <!-- Таймер -->
-   <h1>До события осталось:</h1>
-    <div id="countdown" class="countdown">
-      <div class="countdown-item">
-        <div class="number" id="days">00</div>
-        <div class="label">дней</div>
-      </div>
-      <div class="countdown-item">
-        <div class="number" id="hours">00</div>
-        <div class="label">часов</div>
-      </div>
-      <div class="countdown-item">
-        <div class="number" id="minutes">00</div>
-        <div class="label">минут</div>
-      </div>
-      <div class="countdown-item">
-        <div class="number" id="seconds">00</div>
-        <div class="label">секунд</div>
-      </div>
-    </div>
-  </section>
-   <section data-aos="fade-up">
-    <div class="bg"></div>
-    <div class="content">
-      <h2><br>Детали<br/></h1>
-      <h3>Прошу взять с собой все необходимое для бани и бассейна<br/><br/></p>
-	  <h3>Сообщите мне о своем присутствии и о возможности остаться с ночевой до <br/><br/></p>
-	  <h2 style="text-align: center; margin-bottom: 50px;  font-size: 50px">15 октября 2025</h2>	
-	  <h3> <a href="https://vk.com/tanuschkatos" target="_blank">По всем вопросам, связанным с торжеством, обращайтесь ко мне в личные сообщения</a></h3>
-	
-    </div>
-	  </section>
-	  
-	  
-	<section data-aos="fade-right">
-    <div class="bg"></div>
-    <div class="content">
-      <h1></h1>
-      <p></p>
-    </div>
-  </section>
-  
-  </section >
-   <section data-aos="fade-up">
-    <div class="bg"></div>
-    <div class="content">
-      <h2>Очень жду Вас!<br/></h1>
-     
-    </div>
-  </section>
-<script type="text/javascript">
-    ymaps.ready(init);
-
-    function init() {
-      var coords = [53.281007, 50.226002]; // Самара, ул. Демократическая 130к2
-
-      var map = new ymaps.Map("map", {
-          center: coords,
-          zoom: 16,
-          type: 'yandex#map'
-      });
-
-      // Делаем карту чёрно-белой
-      map.panes.get('ground').getElement().style.filter = 'grayscale(100%)';
-
-      // Метка на доме
-      var placemark = new ymaps.Placemark(coords, {
-          balloonContent: 'Самара, ул. Демократическая 130к2'
-      });
-	// Клик по карте открывает Яндекс.Карты
-	map.events.add('click', function() {
-    window.open('https://yandex.ru/maps/?text=Самара,%20улица%20Демократическая%20130к2', '_blank');
-  });
-      map.geoObjects.add(placemark);
-    }
-  </script> 
-  
- <script>
-  const endDate = new Date("2025-11-01T17:00:00").getTime();
-
-  function updateCountdown() {
-    const now = Date.now();
-    const dist = endDate - now;
-
-    if (dist < 0) {
-      document.getElementById("countdown").innerHTML = "<div style='color:#fff;'>Событие наступило!</div>";
-      clearInterval(timer);
-      return;
-    }
-
-    const days = String(Math.floor(dist / (1000*60*60*24))).padStart(2,'0');
-    const hours = String(Math.floor((dist / (1000*60*60)) % 24)).padStart(2,'0');
-    const minutes = String(Math.floor((dist / (1000*60)) % 60)).padStart(2,'0');
-    const seconds = String(Math.floor((dist / 1000) % 60)).padStart(2,'0');
-
-    const IDs = ["days","hours","minutes","seconds"];
-    const vals = [days, hours, minutes, seconds];
-
-    IDs.forEach((id, idx) => {
-      const el = document.getElementById(id);
-      if (el.innerText !== vals[idx]) {
-        el.classList.remove("flip");
-        void el.offsetWidth; // перезапуск анимации
-        el.innerText = vals[idx];
-        el.classList.add("flip");
-      }
-    });
-  }
-
-  const timer = setInterval(updateCountdown, 1000);
-  updateCountdown();
-</script>
- <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+</a>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init({
       duration: 1200,
       once: true
     });
 
-   
+    // Конфетти
+    const confettiContainer = document.getElementById('confetti');
+    const colors = ['silver', 'white', '#ddd'];
+    for (let i = 0; i < 100; i++) {
+      const confetti = document.createElement('div');
+      confetti.classList.add('confetti-piece');
+      confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+      confetti.style.left = Math.random() * 100 + 'vw';
+      confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+      confetti.style.width = confetti.style.height = (Math.random() * 8 + 5) + 'px';
+      confettiContainer.appendChild(confetti);
+    }
   </script>
-  
-
-
-<!-- <script> -->
-  <!-- const music = document.getElementById('bg-music'); -->
-  <!-- const muteBtn = document.getElementById('mute-btn'); -->
-
-  <!-- window.addEventListener('load', () => { -->
-    <!-- music.play().catch(err => { -->
-      <!-- console.log("Автовоспроизведение заблокировано:", err); -->
-    <!-- }); -->
-  <!-- }); -->
-
-  <!-- muteBtn.addEventListener('click', () => { -->
-    <!-- if (music.paused) { -->
-      <!-- music.play(); -->
-      <!-- muteBtn.textContent = "🔊"; -->
-    <!-- } else { -->
-      <!-- music.pause(); -->
-      <!-- muteBtn.textContent = "🔇"; -->
-    <!-- } -->
-  <!-- }); -->
-<!-- </script> -->
-
 
 <script>
   const music = document.getElementById('bg-music');
   const muteBtn = document.getElementById('mute-btn');
 
-  // Проверяем, нужно ли запускать музыку
-  if (localStorage.getItem("playMusic") === "true") {
+  window.addEventListener('load', () => {
     music.play().catch(err => {
-      console.log("Автовоспроизведение может быть заблокировано:", err);
+      console.log("Автовоспроизведение заблокировано:", err);
     });
-  }
+  });
 
-  // Кнопка включения/выключения
   muteBtn.addEventListener('click', () => {
     if (music.paused) {
       music.play();
@@ -564,6 +193,14 @@ section .content h2 {
       music.pause();
       muteBtn.textContent = "🔇";
     }
+  });
+</script>
+<script>
+  document.getElementById("start-btn").addEventListener("click", () => {
+    // сохраняем флаг в localStorage
+    localStorage.setItem("playMusic", "true");
+    // переходим на вторую страницу
+    window.location.href = "test.html";
   });
 </script>
 </body>
