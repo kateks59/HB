@@ -3,6 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	 <link href="https://fonts.googleapis.com/css2?family=Comforter+Brush&family=Dancing+Script:wght@400..700&family=Great+Vibes&display=swap" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css2?family=Comforter+Brush&family=Dancing+Script:wght@400..700&family=Great+Vibes&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <title>Секции с уникальными фонами</title>
   <style>
     /* Общие стили */
@@ -53,10 +57,38 @@
     section .content h1 {
       font-size: 3rem;
       margin-bottom: 1rem;
+	  font-size: 100px;
+		font-family: "Great Vibes", cursive;
+	font-weight: 100;
+	font-style: normal;
+      color: white;
+      text-shadow: 0 0 15px silver;
     }
-
+section .content h2 {
+    
+      margin-bottom: 1rem;
+	  font-size: 80px;
+		font-family: "Great Vibes", cursive;
+	font-weight: 10;
+	font-style: normal;
+      color: black;
+      text-shadow: 0 0 15px silver;
+    }
+	  section .content h3 {
+      font-size: 1rem;
+      font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+      color: black;
+      text-shadow: 0 0 15px silver;
+    }
     section .content p {
       font-size: 1.5rem;
+	    font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
     }
 
     @keyframes fadeIn {
@@ -77,18 +109,46 @@
     section:nth-of-type(4) .bg { background-image: url("3.png"); }
     section:nth-of-type(5) .bg { background-image: url("11.png"); }
   
-  #countdown {
-  margin-top: 20px;
-  font-size: 2rem;
-  font-weight: bold;
-  background: rgba(0,0,0,0.5); /* прозрачный фон */
-  padding: 15px 25px;
-  border-radius: 10px;
-  display: inline-block;
+  .countdown {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 30px;
+  font-family: sans-serif;
+}
+
+.countdown-item {
+  text-align: center;
+}
+
+.number {
+  font-size: 3.5rem;
+  background: rgba(0,0,0,0.7);
   color: #fff;
-  letter-spacing: 2px;
-  font-family: 'Courier New', Courier, monospace;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  padding: 10px 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  position: relative;
+  overflow: hidden;
+  min-width: 65px;
+}
+
+.label {
+  margin-top: 5px;
+  font-size: 1rem;
+  color: #eee;
+}
+
+/* Эффект перелистывания */
+@keyframes flipIn {
+  0% { transform: rotateX(90deg); opacity: 0; }
+  50% { transform: rotateX(0deg); opacity: 1; }
+  100% { transform: rotateX(0deg); }
+}
+
+.flip {
+  animation: flipIn 0.5s ease-in-out;
+}
 }
   
   </style>
@@ -97,16 +157,20 @@
   <section>
     <div class="bg"></div>
     <div class="content">
-      <h1>Секция 1</h1>
-      <p>Уникальный фон для первой секции</p>
+      <h1>Приглашаю</h1>
+      <p>на мой юбилей</p>
     </div>
   </section>
 
   <section>
     <div class="bg"></div>
     <div class="content">
-      <h1>Секция 2</h1>
-      <p>Фон второй секции</p>
+      <h2>Друзья!</h1>
+      <h3>У меня есть прекрасный <br/>повод провести <br/>субботний вечер вместе!</p>
+	  <h2>Мне 30!</h1>
+	  <h3>Жду Вас</p>
+	  <h2>1 ноября 2025</h1>
+
     </div>
   </section>
 
@@ -124,12 +188,24 @@
       <h1>Секция 4</h1>
       <p>Фон четвертой секции</p>
 	    <!-- Таймер -->
-    <div id="countdown">
-      <span id="days">00</span>д :
-      <span id="hours">00</span>ч :
-      <span id="minutes">00</span>м :
-      <span id="seconds">00</span>с
-    </div>
+   <h1>До события осталось:</h1>
+    <div id="countdown" class="countdown">
+      <div class="countdown-item">
+        <div class="number" id="days">00</div>
+        <div class="label">дней</div>
+      </div>
+      <div class="countdown-item">
+        <div class="number" id="hours">00</div>
+        <div class="label">часов</div>
+      </div>
+      <div class="countdown-item">
+        <div class="number" id="minutes">00</div>
+        <div class="label">минут</div>
+      </div>
+      <div class="countdown-item">
+        <div class="number" id="seconds">00</div>
+        <div class="label">секунд</div>
+      </div>
     </div>
   </section>
 
@@ -142,32 +218,40 @@
   </section>
   
   
-  <script>
-  // Дата события (можно менять)
-  const eventDate = new Date("2025-11-01 18:00:00").getTime();
+ <script>
+  const endDate = new Date("2025-11-01T17:00:00").getTime();
 
-  const countdown = setInterval(() => {
-    const now = new Date().getTime();
-    const distance = eventDate - now;
+  function updateCountdown() {
+    const now = Date.now();
+    const dist = endDate - now;
 
-    // Вычисляем дни, часы, минуты, секунды
-    const days = Math.floor(distance / (1000*60*60*24));
-    const hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
-    const minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
-    const seconds = Math.floor((distance % (1000*60)) / 1000);
-
-    // Отображаем в блоке
-    document.getElementById("days").innerText = String(days).padStart(2,'0');
-    document.getElementById("hours").innerText = String(hours).padStart(2,'0');
-    document.getElementById("minutes").innerText = String(minutes).padStart(2,'0');
-    document.getElementById("seconds").innerText = String(seconds).padStart(2,'0');
-
-    // Если событие наступило
-    if (distance < 0) {
-      clearInterval(countdown);
-      document.getElementById("countdown").innerHTML = "<span>Событие наступило!</span>";
+    if (dist < 0) {
+      document.getElementById("countdown").innerHTML = "<div style='color:#fff;'>Событие наступило!</div>";
+      clearInterval(timer);
+      return;
     }
-  }, 1000);
+
+    const days = String(Math.floor(dist / (1000*60*60*24))).padStart(2,'0');
+    const hours = String(Math.floor((dist / (1000*60*60)) % 24)).padStart(2,'0');
+    const minutes = String(Math.floor((dist / (1000*60)) % 60)).padStart(2,'0');
+    const seconds = String(Math.floor((dist / 1000) % 60)).padStart(2,'0');
+
+    const IDs = ["days","hours","minutes","seconds"];
+    const vals = [days, hours, minutes, seconds];
+
+    IDs.forEach((id, idx) => {
+      const el = document.getElementById(id);
+      if (el.innerText !== vals[idx]) {
+        el.classList.remove("flip");
+        void el.offsetWidth; // перезапуск анимации
+        el.innerText = vals[idx];
+        el.classList.add("flip");
+      }
+    });
+  }
+
+  const timer = setInterval(updateCountdown, 1000);
+  updateCountdown();
 </script>
 </body>
 </html>
