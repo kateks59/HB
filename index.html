@@ -29,7 +29,7 @@
       overflow-y: scroll;
       scroll-snap-type: y mandatory;
       font-family: Arial, sans-serif;
-      color: white;
+      color: white;	  	 
     }
 .scroll-down {
   position: absolute;
@@ -43,6 +43,7 @@
 
 /* Каждая стрелка */
 .scroll-down span {
+color: white;
   display: block;
   width: 12px;
   height: 12px;
@@ -85,10 +86,10 @@ max-width: 600px {
       scroll-snap-align: start;
       min-height: 100vh;
       position: relative;
-      display: flex;
+      display:flex;
       justify-content: center;
       align-items: center;
-      overflow: hidden;
+      overflow: hidden;w	  
     }
 
     section .bg {
@@ -156,15 +157,15 @@ section .content h2 {
     }
 
     /* Уникальные фоны */
-    section:nth-of-type(1) .bg { background-image: url("tos1.jpg"); }
+    section:nth-of-type(1) .bg { background-image: url("1.jpg"); }
     section:nth-of-type(2) .bg { background-image: url("b.png"); }
-    section:nth-of-type(3) .bg {background-image: url("tusa.jpg");	}
+    section:nth-of-type(3) .bg {background-image: url("2.jpg");	}
     section:nth-of-type(4) .bg { background-image: url("loc.png"); }
-	section:nth-of-type(5) .bg { background-image: url("tusa3.jpg"); }
+	section:nth-of-type(5) .bg { background-image: url("3.jpg"); }
     section:nth-of-type(6) .bg { background-image: url("plan.png"); }
-	section:nth-of-type(7) .bg { background-image: url("tos2.jpg"); }
+	section:nth-of-type(7) .bg { background-image: url("4.jpg"); }
 	section:nth-of-type(8) .bg { background-image: url("detail.png"); }
-	section:nth-of-type(9) .bg { background-image: url("tusa2.jpg"); }
+	section:nth-of-type(9) .bg { background-image: url("5.jpg"); }
 	section:nth-of-type(10) .bg { background-image: url("love.png"); }
   #map {
       width: 100%;
@@ -252,44 +253,17 @@ section .content h2 {
   margin: 0;               /* убираем стандартный отступ */
 }
 
-
-    /* Для телефонов */
-    max-width: 768px {
-      body {
-        font-size: 16px;
-      }
-      .container {
-        flex-direction: column;
-      }
-    }
-
-    /* Для компьютеров */
+ /* Для компьютеров */
     min-width: 769px {
-      body {
-        font-size: 18px;
-      }
-      .container {
-        flex-direction: row;
-      }
+	orientation: portrait
     }
+	
 
-    /* Горизонтальная ориентация */
-    orientation: landscape {
-      header {
-        background: #0077cc;
-      }
-    }
-
-    /* Вертикальная ориентация */
-    orientation: portrait {
-      header {
-        background: #cc3300;
-      }
-    }
   </style>
 </head>
 <body>
-  <section class="container" data-aos="fade-up">
+
+  <section data-aos="fade-up">
     <div class="bg"></div>
     <div class="content">
       <h1>Приглашаю</h1>
