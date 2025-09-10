@@ -253,6 +253,39 @@ section .content h2 {
 }
 
 
+    /* Для телефонов */
+    max-width: 768px {
+      body {
+        font-size: 16px;
+      }
+      .container {
+        flex-direction: column;
+      }
+    }
+
+    /* Для компьютеров */
+    min-width: 769px {
+      body {
+        font-size: 18px;
+      }
+      .container {
+        flex-direction: row;
+      }
+    }
+
+    /* Горизонтальная ориентация */
+    orientation: landscape {
+      header {
+        background: #0077cc;
+      }
+    }
+
+    /* Вертикальная ориентация */
+    orientation: portrait {
+      header {
+        background: #cc3300;
+      }
+    }
   </style>
 </head>
 <body>
